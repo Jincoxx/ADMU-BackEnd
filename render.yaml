@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: admu-backend
+    env: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        value: jdbc:mysql://centerbeam.proxy.rlwy.net:49031/railway
+      - key: SPRING_DATASOURCE_USERNAME
+        value: root
+      - key: SPRING_DATASOURCE_PASSWORD
+        value: UXxpZsIkErDFrqYaMOvTsoKElrYvhJMv
