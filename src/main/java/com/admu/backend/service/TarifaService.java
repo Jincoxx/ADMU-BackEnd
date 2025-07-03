@@ -38,6 +38,26 @@ public class TarifaService {
     public List<Tarifa> obtenerTarifasPorRuta(String ruta) {
         return tarifaRepository.findByRuta(ruta);
     }
+
+        // Búsqueda flexible por compañía
+    public List<Tarifa> buscarTarifasPorCompaniaParcial(String compania) {
+        System.out.println("🔍 Buscando tarifas (búsqueda parcial) por compañía: " + compania);
+        return tarifaRepository.buscarPorCompaniaParcial(compania);
+    }
+    
+    // Búsqueda flexible por ruta
+    public List<Tarifa> buscarTarifasPorRutaParcial(String ruta) {
+        System.out.println("🔍 Buscando tarifas (búsqueda parcial) por ruta: " + ruta);
+        return tarifaRepository.buscarPorRutaParcial(ruta);
+    }
+    
+    // Búsqueda flexible por tipo
+    public List<Tarifa> buscarTarifasPorTipoParcial(String tipo) {
+        System.out.println("🔍 Buscando tarifas (búsqueda parcial) por tipo: " + tipo);
+        return tarifaRepository.buscarPorTipoParcial(tipo);
+    }
+
+    
     
     // Crear nueva tarifa
     public Tarifa crearTarifa(Tarifa tarifa) {
