@@ -53,6 +53,32 @@ public class TarifaController {
         List<Tarifa> tarifas = tarifaService.obtenerTarifasPorRuta(ruta);
         return ResponseEntity.ok(tarifas);
     }
+
+
+    // Buscar tarifas por coincidencia parcial en nombre de compañía
+    @GetMapping("/buscar/compania/{compania}")
+    public ResponseEntity<List<Tarifa>> buscarPorCompaniaParcial(@PathVariable String compania) {
+        System.out.println("✅ [TarifaController] GET /api/tarifas/buscar/compania/" + compania);
+        List<Tarifa> tarifas = tarifaService.buscarTarifasPorCompaniaParcial(compania);
+        return ResponseEntity.ok(tarifas);
+    }
+
+    // Buscar tarifas por coincidencia parcial en ruta
+    @GetMapping("/buscar/ruta/{ruta}")
+    public ResponseEntity<List<Tarifa>> buscarPorRutaParcial(@PathVariable String ruta) {
+        System.out.println("✅ [TarifaController] GET /api/tarifas/buscar/ruta/" + ruta);
+        List<Tarifa> tarifas = tarifaService.buscarTarifasPorRutaParcial(ruta);
+        return ResponseEntity.ok(tarifas);
+    }
+
+    // Buscar tarifas por coincidencia parcial en tipo
+    @GetMapping("/buscar/tipo/{tipo}")
+    public ResponseEntity<List<Tarifa>> buscarPorTipoParcial(@PathVariable String tipo) {
+        System.out.println("✅ [TarifaController] GET /api/tarifas/buscar/tipo/" + tipo);
+        List<Tarifa> tarifas = tarifaService.buscarTarifasPorTipoParcial(tipo);
+        return ResponseEntity.ok(tarifas);
+    }
+    
     
     // POST /api/tarifas - Crear nueva tarifa
     @PostMapping
